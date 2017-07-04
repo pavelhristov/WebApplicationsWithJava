@@ -4,6 +4,9 @@ import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
 
+import com.hristov.album.models.Album;
+import com.hristov.album.models.Picture;
+
 
 
 public class HibernateUtils {
@@ -13,6 +16,8 @@ public class HibernateUtils {
 		try {
 			Configuration configuration = new Configuration().configure();
 
+			configuration.addAnnotatedClass(Album.class);
+			configuration.addAnnotatedClass(Picture.class);
 
 			StandardServiceRegistryBuilder serviceRegistryBuilder = new StandardServiceRegistryBuilder();
 
