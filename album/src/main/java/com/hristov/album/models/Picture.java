@@ -20,10 +20,11 @@ public class Picture {
 	@Column(name = "Id")
 	private int id;
 
-	private Album album;
+	@Column(name = "AlbumId")
+	private int albumId;
 
 	@Column(name = "Image")
-	private byte[] image;
+	private String image;
 
 	@Column(name = "Name")
 	private String name;
@@ -42,14 +43,14 @@ public class Picture {
 		this.id = id;
 	}
 	
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "AlbumId", nullable = false)
-	public Album getAlbum() {
-		return this.album;
+//	@ManyToOne(fetch = FetchType.LAZY)
+//	@JoinColumn(name = "AlbumId", nullable = false)
+	public int getAlbumId() {
+		return this.albumId;
 	}
 
-	public void setStock(Album album) {
-		this.album = album;
+	public void setAlbumId(int albumId) {
+		this.albumId = albumId;
 	}
 
 	public String getName() {
@@ -76,11 +77,11 @@ public class Picture {
 		this.date = date;
 	}
 
-	public byte[] getImage() {
+	public String getImage() {
 		return image;
 	}
 
-	public void setImage(byte[] image) {
+	public void setImage(String image) {
 		this.image = image;
 	}
 }

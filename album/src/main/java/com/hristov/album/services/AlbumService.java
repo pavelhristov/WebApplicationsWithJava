@@ -43,7 +43,7 @@ public class AlbumService implements IAlbumService {
 		return album;
 	}
 
-	public Album addPictureToAlbum(int albumId, byte[] image, String pictureName, String pictureLocation) {
+	public Album addPictureToAlbum(int albumId, String image, String pictureName, String pictureLocation) {
 		Session session = HibernateUtils.getSessionFactory().openSession();
 
 		Transaction transaction = session.getTransaction();
@@ -58,7 +58,8 @@ public class AlbumService implements IAlbumService {
 		picture.setImage(image);
 
 		album.setLastModified(now);
-		album.getPictures().add(picture);
+		//album.getPictures().add(picture);
+		picture.setAlbumId(album.getId());
 
 		session.save(picture);
 		session.save(album);
@@ -79,7 +80,7 @@ public class AlbumService implements IAlbumService {
 		Picture pic = session.get(Picture.class, pictureId);
 
 		album.setLastModified(now);
-		album.getPictures().remove(pic);
+		//album.getPictures().remove(pic);
 
 		session.delete(pic);
 		session.save(album);

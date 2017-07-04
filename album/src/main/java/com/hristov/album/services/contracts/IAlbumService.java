@@ -12,7 +12,7 @@ public interface IAlbumService {
 	
 	Album create(String name) ;
 	
-	Album addPictureToAlbum(int albumId, byte[] image, String pictureName, String pictureLocation);
+	Album addPictureToAlbum(int albumId, String image, String pictureName, String pictureLocation);
 	
 	Album deletePictureFromAlbum(int albumId, int pictureId);
 }

@@ -31,16 +31,16 @@ public class Album {
 	@Column(name = "LastModified", unique = true, nullable = false, length = 10)
 	private Date lastModified;
 
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "albums")
-	private Set<Picture> pictures = new HashSet<Picture>(0);
-
-	public Set<Picture> getPictures() {
-		return pictures;
-	}
-
-	public void setPictures(Set<Picture> pictures) {
-		this.pictures = pictures;
-	}
+//	@OneToMany(fetch = FetchType.LAZY, mappedBy = "albums")
+//	private Set<Picture> pictures = new HashSet<Picture>(0);
+//
+//	public Set<Picture> getPictures() {
+//		return pictures;
+//	}
+//
+//	public void setPictures(Set<Picture> pictures) {
+//		this.pictures = pictures;
+//	}
 
 	public int getId() {
 		return id;
