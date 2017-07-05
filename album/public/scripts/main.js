@@ -30,44 +30,61 @@
 // ==========================================
 // ADD IMAGE
 
-const toDataURL = url => fetch(url)
-    .then(response => response.blob())
-    .then(blob => new Promise((resolve, reject) => {
-        const reader = new FileReader()
-        reader.onloadend = () => resolve(reader.result)
-        reader.onerror = reject
-        reader.readAsDataURL(blob)
-    }))
+// const toDataURL = url => fetch(url)
+//     .then(response => response.blob())
+//     .then(blob => new Promise((resolve, reject) => {
+//         const reader = new FileReader()
+//         reader.onloadend = () => resolve(reader.result)
+//         reader.onerror = reject
+//         reader.readAsDataURL(blob)
+//     }))
 
-let imgUrl = $("#myimage").attr('src');
+// let imgUrl = $("#myimage").attr('src');
 
-toDataURL('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbiwfNkcksmxA5POHDzLVTwvAB192GVaYTPNuHPs_13bla4Ju21Q')
-    .then(dataUrl => {
-        
-        $("#myimage").attr('src', dataUrl)
-        return dataUrl
-    }).then((img)=>{
-        
-        $.ajax({
-            method: 'POST',
-            url: '/api/albums/addpicture',
-            data: JSON.stringify({
-                albumId: '1',
-                pictureName: 'BATMAN',
-                pictureLocation: 'in the bat cave',
-                image: img
-            }),
-            contentType: 'application/json',
-            dataType: 'json',
-            success: (res) => {
-                console.log(res);
-            },
-            error: (res) => {
-                console.log(res);
-            }
-        })
-    })
+// toDataURL('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbiwfNkcksmxA5POHDzLVTwvAB192GVaYTPNuHPs_13bla4Ju21Q')
+//     .then(dataUrl => {
+
+//         $("#myimage").attr('src', dataUrl)
+//         return dataUrl
+//     }).then((img)=>{
+
+//         $.ajax({
+//             method: 'POST',
+//             url: '/api/albums/addpicture',
+//             data: JSON.stringify({
+//                 albumId: '1',
+//                 pictureName: 'BATMAN',
+//                 pictureLocation: 'in the bat cave',
+//                 image: img
+//             }),
+//             contentType: 'application/json',
+//             dataType: 'json',
+//             success: (res) => {
+//                 console.log(res);
+//             },
+//             error: (res) => {
+//                 console.log(res);
+//             }
+//         })
+//     })
 
 
 // ===============================
 // DELETE IMAGE
+
+// $.ajax({
+//     method: 'POST',
+//     url: '/api/albums/deletepicture',
+//     data: JSON.stringify({
+//         albumId: '1',
+//         pictureId: '1'
+//     }),
+//     contentType: 'application/json',
+//     dataType: 'json',
+//     success: (res) => {
+//         console.log(res);
+//     },
+//     error: (res) => {
+//         console.log(res);
+//     }
+// })

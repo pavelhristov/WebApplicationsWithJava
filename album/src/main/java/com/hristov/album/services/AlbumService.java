@@ -3,8 +3,10 @@ package com.hristov.album.services;
 import java.util.Date;
 import java.util.List;
 
+import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Service;
 
 import com.hristov.album.db.HibernateUtils;
@@ -24,6 +26,21 @@ public class AlbumService implements IAlbumService {
 		Album album = session.get(Album.class, id);
 
 		return album;
+	}
+	
+	public Picture getPictureById(int id) {
+		Session session = HibernateUtils.getSessionFactory().openSession();
+		Picture pic = session.get(Picture.class, id);
+
+		return pic;
+	}
+	
+	public List<Picture> getPictureInAlbum(int id) {
+		Session session = HibernateUtils.getSessionFactory().openSession();
+		Criteria criteria = session.createCriteria(Picture.class).add(
+                Restrictions.eq("albumId", id));
+
+		return criteria.list();
 	}
 
 	public Album create(String name) {
