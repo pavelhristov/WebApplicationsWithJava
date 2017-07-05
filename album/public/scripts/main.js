@@ -88,3 +88,31 @@
 //         console.log(res);
 //     }
 // })
+
+
+let app = new Sammy('#container', function () {
+    this.get('/#/albums/:albumId', function () {
+        let albumId= this.params['albumId'];
+        
+        $.ajax({
+            method: 'GET',
+            url: `/api/albums/${albumId}`,
+            contentType: 'application/json',
+            dataType: 'json',
+            success: (res) => {
+                console.log(res);
+            },
+            error: (res) => {
+                console.log(res);
+            }
+        })
+    });
+
+    this.get('/#/', function () {
+    });
+});
+
+
+$(function () {
+    app.run('#/');
+}());

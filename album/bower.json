@@ -1,0 +1,22 @@
+{
+  "name": "album",
+  "homepage": "https://github.com/pavelhristov/WebApplicationsWithJava",
+  "authors": [
+    "pavelhristov <pavel.hristov_@abv.bg>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "./public/bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^3.2.1",
+    "sammy": "^0.7.6"
+  }
+}
